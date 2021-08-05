@@ -1,3 +1,6 @@
+from app import  loginUser, registerUser
+register_func = registerUser
+login_func=loginUser.login
 def userPrompt():
     userOptions=""
     while userOptions != '1' or userOptions != '2':
@@ -8,9 +11,9 @@ def userPrompt():
                             "\n3:  Exit \n-------------------\n>>> ")
         if userOptions =='1':
             print("\033c")
-            userName=input("Enter Your Account Username \n >> ")
+            username=input("Enter Your Account Username \n >> ")
             passWord=input("Enter Your Account Password \n >> ")
-
+            login_func(username)
         elif userOptions=='2':
             print("\033c")
             print("Welcome, you are one step from managing your password \n"
@@ -18,7 +21,6 @@ def userPrompt():
             userName=input("Enter Your Username \n >> ")
             passWord=input("Enter Password \n >> ")
             repeatPassWord=input("Repeat Password \n >> ")
-            createAction()
 
         else:
             exit("Exit Successful")
