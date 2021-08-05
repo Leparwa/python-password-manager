@@ -1,3 +1,2 @@
-
-def registerUser(user):
-    print("user" +user)
+def registerUser():
+    pass

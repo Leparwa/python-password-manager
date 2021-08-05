@@ -1,8 +1,8 @@
-from classes import  credentialsClass, userClass
+from app import loginUser
+from classes.userClass import IuserClassLogin
 
-#functions in the app folder declaration
-
-
+user = IuserClassLogin
+login_func= loginUser.login
 
 def userPrompt():
     userOptions=""
@@ -17,8 +17,8 @@ def userPrompt():
             print("\033c")
             username=input("Enter Your Account Username \n >> ")
             loginPassword=input("Enter Your Account Password \n >> ")
-            userClass(username, loginPassword)
-
+            user(username, loginPassword)
+            login_func()
         #logic if user chose Create Account
         elif userOptions=='2':
             print("\033c")

@@ -4,5 +4,9 @@ class IuserClassLogin:
         self.userName = userName
         self.password = password
 
-
+    def loginUser(self):
+        pass
+    def registerUser(self):
+        pass
+ 
 

@@ -1,2 +1,4 @@
-def login(username, password):
-    pass
+from classes.userClass import IuserClassLogin
+userInfo =IuserClassLogin
+def login():
+    print(userInfo.user)
