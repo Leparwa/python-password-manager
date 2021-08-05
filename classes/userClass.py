@@ -1,3 +1,8 @@
+from app.loginUser import login
+from app import loginUser, registerUser
+
+login_func = loginUser.login
+register_func = registerUser.registerUser
 
 class IuserClassLogin:
     def __init__(self, userName, password):
@@ -9,4 +14,3 @@ class IuserRegister:
         self.userName = userName
         self.password = password
         self.asswordRepeat =passwordRepeat
-        
