@@ -1,9 +1,9 @@
-from app import loginUser
+from app import loginUser, registerUser
 from classes.userClass import IuserClassLogin
 
 user = IuserClassLogin
 login_func= loginUser.login
-
+register_func= registerUser.registerUser
 def userPrompt():
     userOptions=""
     while userOptions != '1' or userOptions != '2':
@@ -27,7 +27,7 @@ def userPrompt():
             userName=input("Enter Your Username \n >> ")
             password=input("Enter Password \n >> ")
             repeatPassWord=input("Repeat Password \n >> ")
-
+            register_func(userName, password, repeatPassWord)
     
         #logic if user opted to exit
         else:
