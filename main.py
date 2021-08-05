@@ -1,8 +1,7 @@
-from app import  loginUser, registerUser
+from classes import  credentialsClass, userClass
 
 #functions in the app folder declaration
-register_func = registerUser
-login_func=loginUser.login
+
 
 
 def userPrompt():
@@ -17,8 +16,8 @@ def userPrompt():
         if userOptions =='1':
             print("\033c")
             username=input("Enter Your Account Username \n >> ")
-            passWord=input("Enter Your Account Password \n >> ")
-            login_func(username, passWord)
+            loginPassword=input("Enter Your Account Password \n >> ")
+            userClass(username, loginPassword)
 
         #logic if user chose Create Account
         elif userOptions=='2':
@@ -26,8 +25,9 @@ def userPrompt():
             print("Welcome, you are one step from managing your password \n"
                 "******************************************************")
             userName=input("Enter Your Username \n >> ")
-            passWord=input("Enter Password \n >> ")
+            password=input("Enter Password \n >> ")
             repeatPassWord=input("Repeat Password \n >> ")
+
     
         #logic if user opted to exit
         else:
