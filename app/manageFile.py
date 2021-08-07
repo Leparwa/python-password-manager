@@ -2,8 +2,8 @@
 def readUserCrenditialFile():
     file = open("userCredentials.txt", "r")
     for i in file:
-        user =i.split(" ")
-    print(user)
+        user =i.split("|")
+    print(user[0])
       
 
 def writeUserCrendentialsFile(username, password, account):
