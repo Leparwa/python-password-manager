@@ -4,6 +4,8 @@ userInfo =IuserClassLogin
 userCrenditials = readRegisteredUserFile
 writeCredentials = writeUserCrendentialsFile
 
+isContinueAddMoreAccounts = False
+
 def login():
     print("\033c")
     if(userInfo.user):
@@ -55,25 +57,24 @@ def actionAfterViewAll():
 
 def actionAfterAddNewAccount():
     userChoise=''
-
     userChoise =input("************Choose Action********** \n"
-                        "\t1: Go back \n"
-                        "\t2: Add another account\n"
-                        "\t3: View all managed account's credential\n"
-                        "\t4: Logout\n>>> ")
+                "\t1: Go back \n"
+                "\t2: Add another account\n"
+                "\t3: View all managed account's credential\n"
+                "\t4: Logout\n>>> ")
     if userChoise =='1':
-            actionsAfterLogin()
+        actionsAfterLogin()
 
     elif userChoise =='2':
-            addNewAcount()
-            actionAfterViewAll()
-            while True:
-                actionAfterAddNewAccount()
+        print("\033c")        
+        addNewAcount()
+        while True:
+            actionAfterAddNewAccount()
 
     elif userChoise=='3':
-            print("\033c")
-            viewAll()
-            actionAfterViewAll()
+        print("\033c")
+        viewAll()
+        actionAfterViewAll()
 
     else:
-            exit("Logout Successfully")
+        exit("Logout Successfully")
