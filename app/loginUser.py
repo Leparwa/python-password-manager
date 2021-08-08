@@ -1,7 +1,7 @@
 from classes.userClass import IuserClassLogin
-from app.manageFile import readRegisteredUserFile, writeUserCrendentialsFile
+from app.manageFile import readRegisteredUserFile, readUserCrenditialFile, writeUserCrendentialsFile
 userInfo =IuserClassLogin
-userCrenditials = readRegisteredUserFile
+userCrenditials = readUserCrenditialFile
 writeCredentials = writeUserCrendentialsFile
 
 isContinueAddMoreAccounts = False
@@ -9,6 +9,7 @@ isContinueAddMoreAccounts = False
 def login():
     print("\033c")
     if(userInfo.user):
+        print(userInfo.user)
         actionsAfterLogin()
     else:
         print("user does not exist")
@@ -21,9 +22,10 @@ def actionsAfterLogin():
     print("\033c")
     print("*********LIST OF CREDENTIALS MANAGED***********\n")
     viewAll()
-    loginAction =input("********MANAGE YOUR ACCOUNT***********\n"
+    loginAction =input("\t********MANAGE YOUR ACCOUNT***********\n"
           "\t1: add new account\n"
-           "\t2: view managed account's credentials\n>>> ")
+           "\t2: view managed account's credentials\n"
+           "\t3: Logout \n>>>")
     if loginAction =='1':
         print("\033c")
         addNewAcount()
@@ -34,7 +36,7 @@ def actionsAfterLogin():
         actionAfterViewAll()
 
     else:
-        pass
+        exit("Logout Successfully")
 
 def addNewAcount():
     userName=input("Enter Account Username  \n >> ")

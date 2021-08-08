@@ -19,7 +19,6 @@ def userPrompt():
             loginPassword=input("Enter Your Account Password \n >> ")
             user(username, loginPassword)
             login_func()
-            userOptions ='1'
         #logic if user chose Create Account
         elif userOptions=='2':
             print("\033c")
