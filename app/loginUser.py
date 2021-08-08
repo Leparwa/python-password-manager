@@ -1,8 +1,9 @@
 from classes.userClass import IuserClassLogin
-from app.manageFile import readRegisteredUserFile, readUserCrenditialFile, writeUserCrendentialsFile
+from app.manageFile import removeAccount, readUserCrenditialFile, writeUserCrendentialsFile
 userInfo =IuserClassLogin
 userCrenditials = readUserCrenditialFile
 writeCredentials = writeUserCrendentialsFile
+deleteAcc = removeAccount
 
 isContinueAddMoreAccounts = False
 
@@ -25,7 +26,8 @@ def actionsAfterLogin():
     loginAction =input("\t********MANAGE YOUR ACCOUNT***********\n"
           "\t1: add new account\n"
            "\t2: view managed account's credentials\n"
-           "\t3: Logout \n>>>")
+           "\t3: delete Account\n"
+           "\t4: Logout \n>>>")
     if loginAction =='1':
         print("\033c")
         addNewAcount()
@@ -34,6 +36,8 @@ def actionsAfterLogin():
         print("\033c")
         viewAll()
         actionAfterViewAll()
+    elif loginAction=='3':
+        deleteAccount()
 
     else:
         exit("Logout Successfully")
@@ -80,3 +84,9 @@ def actionAfterAddNewAccount():
 
     else:
         exit("Logout Successfully")
+
+def deleteAccount():
+    password = input("Enter The Password Of Account You Want To Delete\n>>>")
+    deleteAcc(password)
+    login()
+

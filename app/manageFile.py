@@ -18,6 +18,18 @@ def writeUserCrendentialsFile(username, password, account):
     file = open("userCredentials.txt", "a")
     file.write(username+"|"+account+"|"+password+"\n")
 
+def removeAccount(password):
+    with open("userCredentials.txt",'r') as file:
+        lines = file.readlines()
+
+    with open("userCredentials.txt",'w') as file:
+        for line in lines:
+        # find() returns -1 if no match is found
+            if line.find(password) != -1:
+                print("No Matching account")
+            else:
+                file.write(line)
+                print("Deleted")
 #manage user 
 def writeRegisterUserFile(username, password):
     file = open("registeredUsers.txt", "a")
