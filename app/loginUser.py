@@ -1,3 +1,5 @@
+import random
+import string
 from classes.userClass import IuserClassLogin
 from app.manageFile import removeAccount, readUserCrenditialFile, writeUserCrendentialsFile
 userInfo =IuserClassLogin
@@ -8,6 +10,9 @@ deleteAcc = removeAccount
 isContinueAddMoreAccounts = False
 
 def login():
+    '''
+    this function handles login functionality 
+    '''
     print("\033c")
     if(userInfo.user):
         print(userInfo.user)
@@ -20,6 +25,9 @@ def viewAll():
     userCrenditials()
 
 def actionsAfterLogin():
+    '''
+    this function handles user actions after login
+    '''
     print("\033c")
     print("*********LIST OF CREDENTIALS MANAGED***********\n")
     viewAll()
@@ -43,12 +51,28 @@ def actionsAfterLogin():
         exit("Logout Successfully")
 
 def addNewAcount():
-    userName=input("Enter Account Username  \n >> ")
-    password=input("Enter Account Password \n >> ")
+    ''' 
+    this function handles user action adding new account credentials
+    '''
+    password = ""
+    userName=input("Enter Account Username  \n >>")
     account=input("Enter Account company \n >> ")
+    isgeneratePassword =input("\t1: generate password?"
+                              "\t2: enter your password\n"
+                                "\t >>>")
+    if isgeneratePassword=='1':
+        password_length = input("enter the length of the password \n >>")
+        password = generate_pass(int(password_length))
+    elif isgeneratePassword =='2':
+        password=input("Enter Account Password \n >> ")
+
+
     writeCredentials(userName, password, account)
 
 def actionAfterViewAll():
+    '''
+    this function handles user actions after they view all of the saved credentials
+    '''
     userChoise =input("************Choose Action********** \n"
                         "\t1: Go back \n"
                         "\t2: Add new account\n"
@@ -62,6 +86,9 @@ def actionAfterViewAll():
         exit("Logout Successfully")
 
 def actionAfterAddNewAccount():
+    '''
+    this function handles user actions after login
+    '''
     userChoise=''
     userChoise =input("************Choose Action********** \n"
                 "\t1: Go back \n"
@@ -86,7 +113,19 @@ def actionAfterAddNewAccount():
         exit("Logout Successfully")
 
 def deleteAccount():
+    '''This function deletes user account'''
+
     password = input("Enter The Password Of Account You Want To Delete\n>>>")
     deleteAcc(password)
     login()
 
+def generate_pass(length):
+    "Takes length of the password desired by user"
+
+    '''
+    it automatically generates the password
+    and the function return the password
+    '''
+    letters = string.ascii_lowercase
+    random_password = ''.join(random.choice(letters) for i in range(length))
+    return random_password

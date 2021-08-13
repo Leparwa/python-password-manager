@@ -4,6 +4,9 @@ from app.loginUser import login
 login_func = login
 write_register_func = writeRegisterUserFile
 def registerUser(userName, password, repeatPassword):
+    '''
+    this function have a functionality to register user 
+    '''
     if(password==repeatPassword):
         write_register_func(userName, password)
         print("\033c")
@@ -13,6 +16,9 @@ def registerUser(userName, password, repeatPassword):
     else:
         exit()
 def actionsAfterRegister(user, password):
+    '''
+    this function have a functionality to handle user actions after register
+    '''
     userChoise ='',
     userChoise = input("****CONGRATULATIONS!!"+" "+user+""+", Account Created Successfully******** \n"
                             "\t1: Login \n"
@@ -29,6 +35,9 @@ def loginAfterRegister():
     pass
 
 def invalidChoice(user):
+    '''
+    this function have a functionality to handle invalid choice made by the user
+    '''
     userChoise ='',
     userChoise = input("****SORRY!!"+" "+user+""+", Please Select A Valid Option******** \n"
                             "\t1: Login \n"

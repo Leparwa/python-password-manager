@@ -5,6 +5,12 @@ user = IuserClassLogin
 login_func= loginUser.login
 register_func= registerUser.registerUser
 def userPrompt():
+    "this is a default function that will be executed when we run our program"
+
+    '''
+    the user has an option to choose from 
+    
+    '''
     userOptions=""
     if userOptions != '1' or userOptions != '2':
         userOptions= input("WELCOME TO YOUR PASSWORD MANAGER PORTAL !! \n"
@@ -33,5 +39,4 @@ def userPrompt():
         else:
             exit("Exit Successful")
    
-
 userPrompt()
